@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "suspicious-tweets-detection"
+version = "0.1.0"
+description = ""
+authors = ["abdoulfataoh <abdoulfataoh@gmail.com>"]
+readme = "README.md"
+packages = [{include = "suspicious_tweets_detection"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
