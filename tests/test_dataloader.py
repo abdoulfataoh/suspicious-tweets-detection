@@ -1,13 +1,13 @@
 # coding: utf-8
 
-from src import settings
-from src import DataLoader
+
+import pytest
 
 import pandas as pd
 
+from src import settings
+from src import DataLoader
 
-
-import pytest
 
 @pytest.fixture
 def dataloader():
@@ -71,7 +71,7 @@ def test_load_dataframe_from_csv(dataloader):
 
     dataloader.load_dataframe_from_csv(lambda x: x)
     assert dataloader.dataframe.to_dict() == result
-    
+
 
 def test_split_dataframe(dataloader):
     dataloader.load_dataframe_from_csv(lambda x: x)
