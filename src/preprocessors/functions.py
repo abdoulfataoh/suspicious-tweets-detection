@@ -2,8 +2,6 @@
 
 import logging
 from typing import List
-from typing import Iterable
-from typing import Any
 
 import spacy
 from gensim.models import word2vec
@@ -19,15 +17,12 @@ def tokenizer(input: str):
     return tokens
 
 
-cleaner = lambda tokens: [token.lower() for token in tokens]  # noqa: E731
-
-
 def avg_words_vectors(
     word2vec: word2vec,
     words_list: List[str],
     vector_size: int
 ) -> np.ndarray:
-    
+
     vacabulary = word2vec.wv.index2word
     words_vectors_sum = np.zeros(vector_size, dtype=np.float32)
     words_vectors_count = 0
@@ -48,10 +43,13 @@ def vectorize_messages(
     messages_list: List[str],
     vector_size: int
 ) -> np.ndarray:
-    
+
     sentences_length = len(messages_list)
     message_index = 0
-    messages_vectors = np.zeros((sentences_length, vector_size), dtype=np.float32)
+    messages_vectors = np.zeros(
+        (sentences_length, vector_size),
+        dtype=np.float32
+    )
     for message in messages_list:
         messages_vectors[message_index] = avg_words_vectors(
             word2vec,
@@ -59,5 +57,5 @@ def vectorize_messages(
             vector_size,
         )
         if message_index % 1000 == 0:
-            logger.info(f"vectorize_sentences progess: {message_index}/{sentences_length}")
+            logger.info(f"vectorize_sentences progess: {message_index}/{sentences_length}")  # noqa: E501
     return messages_vectors

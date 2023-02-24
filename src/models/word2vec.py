@@ -47,6 +47,6 @@ class Word2vec(Model):
             else:
                 raise ValueError(f"'{input}' is not in the vocabulary")
         return vectors
-    
+
     def save(self, destination: Path):
         self._model.save(str(destination))
