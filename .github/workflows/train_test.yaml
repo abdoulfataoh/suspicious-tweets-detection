@@ -7,7 +7,7 @@ run-name: train_test trigged by ${{github.actor}}
 on:
   push:
     branches:
-      - "master"
+      - "main"
 
 jobs:
   build:
