@@ -30,3 +30,4 @@ word2vec = Word2vec()
 word2vec.train(dataloader.dataframe['words'], vector_size=300)
 word2vec.save(settings.MODELS_FOLDER / 'word2vec.model')
 
+print(word2vec.predict([['if']]))
