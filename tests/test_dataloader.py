@@ -1,12 +1,9 @@
 # coding: utf-8
 
-
 import pytest
 
-import pandas as pd
-
 from src import settings
-from src import DataLoader
+from src.data_loaders import DataLoader
 
 
 @pytest.fixture
@@ -26,7 +23,7 @@ def dataloader():
     100,1,1200,200
     """
     data = data.replace('    ', '')
-    dataset_path = settings.DATASET_PATH / 'dataset.test.csv'
+    dataset_path = settings.DATASET_FOLDER / 'dataset.test.csv'
     with open(dataset_path, 'w') as file:
         file.write(data)
     
@@ -69,12 +66,12 @@ def test_load_dataframe_from_csv(dataloader):
                 9: 200}
             }
 
-    dataloader.load_dataframe_from_csv(lambda x: x)
+    dataloader.load_dataframe_from_csv()
     assert dataloader.dataframe.to_dict() == result
 
 
 def test_split_dataframe(dataloader):
-    dataloader.load_dataframe_from_csv(lambda x: x)
+    dataloader.load_dataframe_from_csv()
     x_train, x_test, y_train, y_test = dataloader.split_dataframe(
         label_column_name='prix',
         train_size=0.8,
