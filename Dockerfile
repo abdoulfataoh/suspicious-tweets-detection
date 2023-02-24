@@ -4,7 +4,7 @@
 FROM python:3.10
 
 # [Meta data]
-LABEL name="(suspicious-tweets-detection"
+LABEL name="suspicious-tweets-detection"
 LABEL authors="abdoulfataoh"
 
 # [Wordir]
