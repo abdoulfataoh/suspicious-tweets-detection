@@ -1,0 +1,22 @@
+# coding: utf-8
+
+name: train_test suspicious-tweets-detection models
+
+run-name: train_test trigged by ${{github.actor}}
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build docker Image
+        run: |
+          docker build . -t suspicious-tweets-detection
+          docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker tag suspicious-tweets-detection ${{ secrets.DOCKER_HUB_USERNAME }}/suspicious-tweets-detection:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/suspicious-tweets-detection:latest
