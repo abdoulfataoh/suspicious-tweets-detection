@@ -28,4 +28,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 RUN python -m spacy download en_core_web_sm
 
 # [Train an Test]
-CMD ["python", "train_test.py"]
+RUN ["python", "train_test.py"]
