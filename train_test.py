@@ -47,3 +47,5 @@ dataloader.split_dataframe(
         test_size=0.2,
         seed=10,
 )
+
+print(dataloader.dataframe)
