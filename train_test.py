@@ -49,10 +49,10 @@ dataloader.split_dataframe(
         seed=10,
 )
 
-print(dataloader.x_train.shape())
-print(dataloader.y_train.shape())
-print(dataloader.x_test.shape())
-print(dataloader.y_test.shape())
+print(dataloader.x_train.shape)
+print(dataloader.y_train.shape)
+print(dataloader.x_test.shape)
+print(dataloader.y_test.shape)
 
 forest = RandomForest(n_estimators=100)
 forest.train(dataloader.x_train, dataloader.y_train)
