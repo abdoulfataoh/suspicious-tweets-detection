@@ -49,10 +49,10 @@ dataloader.split_dataframe(
         seed=10,
 )
 
-print(dataloader.x_train.shape)
-print(dataloader.y_train.shape)
-print(dataloader.x_test.shape)
-print(dataloader.y_test.shape)
+x_train = dataloader.x_train['avg_words_vectors']
+y_train = dataloader.y_train['avg_words_vectors']
+x_test = dataloader.x_test['avg_words_vectors']
+y_test = dataloader.y_test['avg_words_vectors']
 
 print(dataloader.x_train)
 print(dataloader.y_train)
@@ -60,6 +60,6 @@ print(dataloader.x_test)
 print(dataloader.y_test)
 
 forest = RandomForest(n_estimators=100)
-forest.train(dataloader.x_train, dataloader.y_train)
-result = forest.test(dataloader.x_test, dataloader.y_test)
+forest.train(x_train, y_train)
+result = forest.test(x_test, y_test)
 print(result)
