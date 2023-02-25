@@ -101,13 +101,13 @@ class DataLoader:
     def x_train(self):
         if self._x_train is None:
             raise NoneException("split_dataframe must be called before")
-        self._x_train
+        return self._x_train
 
     @property
     def y_train(self):
         if self._y_train is None:
             raise NoneException("split_dataframe must be called before")
-        self._y_train
+        return self._y_train
 
     @property
     def x_test(self):

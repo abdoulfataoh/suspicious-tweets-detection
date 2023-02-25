@@ -73,13 +73,14 @@ def test_load_dataframe_from_csv(dataloader):
 def test_split_dataframe(dataloader):
     dataloader.load_dataframe_from_csv()
     x_train, x_test, y_train, y_test = dataloader.split_dataframe(
-        label_column_name='prix',
+        features_names=['surface' ,'qualite', 'addresse'],
+        target_name='prix',
         train_size=0.8,
         seed=10
     )
     
-    assert x_train.shape[0] == 8
+    assert dataloader.x_train.shape[0] == 8
     assert y_train.shape[0] == 8
     assert x_test.shape[0] == 2
-    assert y_test.shape[0] == 2
+    assert dataloader.y_test.shape[0] == 2
     assert 'prix' not in x_train.columns
