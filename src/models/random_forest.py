@@ -15,7 +15,6 @@ class RandomForest(Model):
 
     def __init__(self, **kwargs):
         self._model = RandomForestClassifier(**kwargs)
-        return self._model
 
     def train(self, x_train, y_train):
         self._model.fit(x_train, y_train)
