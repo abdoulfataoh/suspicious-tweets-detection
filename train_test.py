@@ -4,6 +4,7 @@ import logging
 
 from src import settings
 from src.models import Word2vec
+from src.models import RandomForest
 from src import DataLoader
 from src.preprocessors import tokenizer
 from src.preprocessors import avg_words_vectors
@@ -48,4 +49,12 @@ dataloader.split_dataframe(
         seed=10,
 )
 
-print(dataloader.dataframe)
+print(dataloader.x_train.shape())
+print(dataloader.y_train.shape())
+print(dataloader.x_test.shape())
+print(dataloader.y_test.shape())
+
+forest = RandomForest(n_estimators=100)
+forest.train(dataloader.x_train, dataloader.y_train)
+result = forest.test(dataloader.x_test, dataloader.y_test)
+print(result)
