@@ -23,10 +23,17 @@ dataloader.load_dataframe_from_csv()
 
 dataloader.dataframe['words'] = dataloader.dataframe['message'].progress_apply(lambda x: tokenizer(x.lower()))
 
+print(dataloader.dataframe['words'][0:5])
 
 logger.info("train word2vec model")
 word2vec = Word2vec()
-word2vec.train(dataloader.dataframe['words'], vector_size=300)
+word2vec.train(
+    dataloader.dataframe['words'],
+    vector_size=300,
+    window=5,
+    min_count=1,
+    workers=4,
+)
 word2vec.save(settings.MODELS_FOLDER / 'word2vec.model')
 
 logger.info("vactorize dataset")
