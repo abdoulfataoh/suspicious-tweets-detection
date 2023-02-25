@@ -54,6 +54,11 @@ print(dataloader.y_train.shape)
 print(dataloader.x_test.shape)
 print(dataloader.y_test.shape)
 
+print(dataloader.x_train)
+print(dataloader.y_train)
+print(dataloader.x_test)
+print(dataloader.y_test)
+
 forest = RandomForest(n_estimators=100)
 forest.train(dataloader.x_train, dataloader.y_train)
 result = forest.test(dataloader.x_test, dataloader.y_test)
