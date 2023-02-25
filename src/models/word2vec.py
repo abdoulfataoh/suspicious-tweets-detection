@@ -28,7 +28,7 @@ class Word2vec(Model):
     def test(self):
         raise Exception('NotImplemented: test is not implemented')
 
-    def predict(self, inputs: List[List[str]]) -> List:
+    def predict(self, inputs: List[str]) -> List:
         predictions = []
         for input in inputs:
             if input in self._vocabulary:

@@ -2,6 +2,7 @@
 import logging
 from pathlib import Path
 from typing import Callable
+from typing import List
 from typing import Optional
 from typing import Union
 
@@ -66,14 +67,16 @@ class DataLoader:
 
     def split_dataframe(
             self,
-            label_column_name: Union[str, int],
+            features_names: List[str],
+            target_name: Union[str, int],
             train_size: Optional[float] = None,
             test_size: Optional[float] = None,
             seed: Optional[int] = None,
             **kwargs
     ):
-        target = self._dataframe[label_column_name]
-        features = self._dataframe.drop(label_column_name, axis=1)
+        target = self._dataframe[target_name]
+        features = self._dataframe[features_names]
+
         x_train, x_test, y_train, y_test = train_test_split(
             features,
             target,
