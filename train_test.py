@@ -49,7 +49,8 @@ dataloader.split_dataframe(
         features_names=['avg_words_vectors'],
         target_name='label',
         test_size=0.2,
-        seed=10,
+        seed=42,
+        
 )
 print(dataloader.x_train)
 x_train = list(dataloader.x_train['avg_words_vectors'])
@@ -57,5 +58,5 @@ x_test = list(dataloader.x_test['avg_words_vectors'])
 
 forest = RandomForest(n_estimators=100)
 forest.train(x_train, dataloader.y_train)
-result = forest.test(x_test, dataloader.y_test, pos_label=0, average='binary')
+result = forest.test(x_test, dataloader.y_test, pos_label=1, average='binary')
 print(result)
