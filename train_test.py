@@ -53,5 +53,5 @@ x_test = list(dataloader.x_test['avg_words_vectors'])
 
 forest = RandomForest(n_estimators=100)
 forest.train(x_train, dataloader.y_train)
-result = forest.test(x_test, dataloader.y_test)
+result = forest.test(x_test, dataloader.y_test, pos_label=0, average='binary')
 print(result)

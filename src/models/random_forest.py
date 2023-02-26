@@ -19,9 +19,9 @@ class RandomForest(Model):
     def train(self, x_train, y_train):
         self._model.fit(x_train, y_train)
 
-    def test(self, x_test, y_test) -> dict:
+    def test(self, x_test, y_test, **kwargs) -> dict:
         predictions = self.predict(x_test)
-        precision, recall, fscore, support = scores(predictions, y_test)  # noqa: 501
+        precision, recall, fscore, support = scores(predictions, y_test, **kwargs)  # noqa: 501
         scores_ = {
             'precision': precision,
             'recall': recall,
