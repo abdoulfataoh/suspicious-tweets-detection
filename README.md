@@ -48,7 +48,7 @@ Machine learning models for suspicious tweets detection
   make test
 ```
 
-4. Run train and test
+5. Run train and test
 ```bash
   make train_test
 ```
