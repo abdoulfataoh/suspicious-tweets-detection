@@ -11,6 +11,7 @@ Machine learning models for suspicious tweets detection
 
 ## Dataset
 ```json
+{
   "dataset_name": "tweets_suspect.csv",
   "dataset_url": "https://drive.google.com/file/d/1US0luOWPOeVPpUQnpyxr41zrBmeg4Gjk/view?usp=share_link",
   "dataset_language": "english",
@@ -20,6 +21,7 @@ Machine learning models for suspicious tweets detection
       "message": "the tweet message",
       "label": "message label, 1 is suspicious, 0 non suspicious" 
     }
+}
 ```
 
 ## Project Workflow
