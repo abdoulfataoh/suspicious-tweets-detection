@@ -2,6 +2,7 @@ help:
 	@echo "make mypy	    - Checks static typing with mypy"
 	@echo "make flake8          - Checks flake8"
 	@echo "make test            - Runs the test suite"
+	@echo "make train_test	    - Train and test models"
 	
 
 mypy:
@@ -11,3 +12,6 @@ flake8:
 
 test:
 	pytest tests
+
+train_test:
+	python train_test
