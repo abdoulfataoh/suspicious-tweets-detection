@@ -23,6 +23,6 @@ Machine learning models for suspicious tweets detection
 ```
 
 ## Project Workflow
-![diagram](https://github.com/abdoulfataoh/suspicious-tweets-detection/docs/diagram.png)
+![diagram](https://github.com/abdoulfataoh/suspicious-tweets-detection/blob/main/docs/diagram.png)
 
 
