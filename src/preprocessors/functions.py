@@ -30,11 +30,9 @@ def avg_words_vectors(
     vector_size: int
 ) -> np.ndarray:
 
-    words_vectors_sum = np.zeros(vector_size, dtype=np.float32)
-    words_vectors_count = 0
-    for word in words_list:
-        word_vec = word2vec.to_vectors([word])[0]
-        words_vectors_count = words_vectors_count + 1
-        words_vectors_sum = np.add(words_vectors_sum, word_vec)
-    words_vectors_avg = np.divide(words_vectors_sum, words_vectors_count)
-    return words_vectors_avg
+    sum_vectors = np.zeros(vector_size, dtype=np.float32)
+    vectors = word2vec.to_vectors(words_list)
+    for vector in vectors:
+        sum_vectors = np.add(sum_vectors, vector)
+    avg_vectors = np.divide(sum_vectors, len(vectors))
+    return avg_vectors
