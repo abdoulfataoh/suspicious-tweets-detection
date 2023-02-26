@@ -6,7 +6,8 @@ from src import settings
 from src.models import Word2vec
 from src.models import RandomForest
 from src import DataLoader
-from src.preprocessors import tokenizer
+from src.preprocessors import tokenizer_spacy_en
+from src.preprocessors import tokenizer_re
 from src.preprocessors import avg_words_vectors
 
 logger = logging.getLogger(__name__)
@@ -22,9 +23,7 @@ logger.info("load and preprocced the the dataset")
 dataloader = DataLoader(settings.DATASET_FOLDER / settings.DATASET_NAME)
 dataloader.load_dataframe_from_csv()
 
-dataloader.dataframe['words'] = dataloader.dataframe['message'].progress_apply(lambda x: tokenizer(x.lower()))
-
-print(dataloader.dataframe['words'][0:5])
+dataloader.dataframe['words'] = dataloader.dataframe['message'].progress_apply(lambda x: tokenizer_re(x.lower()))
 
 logger.info("train word2vec model")
 word2vec = Word2vec()
@@ -49,17 +48,10 @@ dataloader.split_dataframe(
         seed=10,
 )
 
-x_train = dataloader.x_train['avg_words_vectors']
-y_train = dataloader.y_train['avg_words_vectors']
-x_test = dataloader.x_test['avg_words_vectors']
-y_test = dataloader.y_test['avg_words_vectors']
-
-print(dataloader.x_train)
-print(dataloader.y_train)
-print(dataloader.x_test)
-print(dataloader.y_test)
+x_train = list(dataloader.x_train['avg_words_vectors'])
+x_test = list(dataloader.x_test['avg_words_vectors'])
 
 forest = RandomForest(n_estimators=100)
-forest.train(x_train, y_train)
-result = forest.test(x_test, y_test)
+forest.train(x_train, dataloader.y_train)
+result = forest.test(x_test, dataloader.y_test)
 print(result)

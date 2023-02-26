@@ -27,5 +27,8 @@ ENV PATH="/app/.venv/bin:$PATH"
 # [Install spacy en_core_web_sm model]
 RUN python -m spacy download en_core_web_sm
 
+# [Make test]
+RUN make test
+
 # [Train an Test]
 RUN ["python", "train_test.py"]

@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - name: Build docker Image
+      - name: launch train_test
         run: |
           docker build . -t suspicious-tweets-detection
           docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}

@@ -2,6 +2,7 @@
 
 import logging
 from typing import List
+import re
 
 import spacy
 from src.models import Word2vec
@@ -11,9 +12,15 @@ logger = logging.getLogger(__name__)
 nlp = spacy.load("en_core_web_sm")
 
 
-def tokenizer(input: str):
+def tokenizer_spacy_en(input: str):
     doc = nlp(input)
     tokens = [token.text for token in doc]
+    return tokens
+
+
+def tokenizer_re(input: str):
+    regex = re.compile("\w+")
+    tokens = re.findall(regex, input)
     return tokens
 
 
