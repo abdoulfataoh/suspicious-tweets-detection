@@ -18,7 +18,7 @@ Machine learning models for suspicious tweets detection
   "dataset_columns_description":
     {
       "message": "the tweet message",
-      "label": "message label, 1 is suspius, 0 non suspius" 
+      "label": "message label, 1 is suspicious, 0 non suspicious" 
     }
 ```
 
