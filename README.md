@@ -54,6 +54,6 @@ Machine learning models for suspicious tweets detection
 ```
 
 ## Output
-see trained models at ```assets.models```
+see trained models at ```assets/models```
 
   
