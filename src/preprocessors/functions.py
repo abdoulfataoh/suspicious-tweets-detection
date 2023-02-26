@@ -19,7 +19,7 @@ def tokenizer_spacy_en(input: str):
 
 
 def tokenizer_re(input: str):
-    regex = re.compile("\w+")
+    regex = re.compile('\w+')  # noqa: W605
     tokens = re.findall(regex, input)
     return tokens
 

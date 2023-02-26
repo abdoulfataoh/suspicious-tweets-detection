@@ -6,10 +6,10 @@ from typing import List
 from typing import Optional
 from typing import Union
 
-from tqdm import tqdm
 import pandas as pd
 import gdown
 from sklearn.model_selection import train_test_split
+from tqdm import tqdm
 
 tqdm.pandas()
 logger = logging.getLogger(__name__)

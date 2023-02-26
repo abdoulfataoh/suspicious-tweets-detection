@@ -30,5 +30,8 @@ RUN python -m spacy download en_core_web_sm
 # [Make test]
 RUN make test
 
+# [Make lint]
+RUN make flake8
+
 # [Train an Test]
 RUN ["python", "train_test.py"]

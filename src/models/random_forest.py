@@ -23,6 +23,7 @@ class RandomForest(Model):
         predictions = self.predict(x_test)
         precision, recall, fscore, support = scores(predictions, y_test, **kwargs)  # noqa: 501
         scores_ = {
+            'model': str(self),
             'precision': precision,
             'recall': recall,
             'fscore': fscore,
@@ -38,3 +39,6 @@ class RandomForest(Model):
     def save(self, destination: Path):
         with open(destination, 'wb') as file:
             pickle.dump(self._model, file)
+
+    def __str__(self) -> str:
+        return 'RandomForestClassifier'

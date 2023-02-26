@@ -50,3 +50,6 @@ class Word2vec(Model):
 
     def save(self, destination: Path):
         self._model.save(str(destination))
+
+    def __str__(self) -> str:
+        return 'Word2Vec'
