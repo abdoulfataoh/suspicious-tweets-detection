@@ -25,4 +25,35 @@ Machine learning models for suspicious tweets detection
 ## Project Workflow
 ![diagram](https://github.com/abdoulfataoh/suspicious-tweets-detection/blob/main/docs/diagram.png)
 
+## Setup
 
+1. Clone the project
+```bash
+  git clone git@github.com:abdoulfataoh/suspicious-tweets-detection.git
+  cd suspicious-tweets-detection
+```
+
+2. Install Dependancies with poetry
+```bash
+  poetry install
+```
+
+3. Enable virtual env
+```bash
+  poetry shell
+```
+
+4. Check everything is OK
+```bash
+  make test
+```
+
+4. Run train and test
+```bash
+  make train_test
+```
+
+## Output
+see trained models at ```assets.models```
+
+  
