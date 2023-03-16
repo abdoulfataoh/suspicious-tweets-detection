@@ -14,4 +14,4 @@ test:
 	pytest tests
 
 train_test:
-	python train_test
+	python train_test.py
